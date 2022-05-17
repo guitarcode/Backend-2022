@@ -19,6 +19,6 @@ import lotto.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('lotto/', lotto.views.lotto),
+    path('lotto/', lotto.views.lotto, name='lotto'),
     path('lotto/result', lotto.views.result, name='result'),
 ]

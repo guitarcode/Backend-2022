@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>로또 번호 추출기</h1>
-    {{ gameNum }}번 추출 결과 : {{lottoList}}
+    <p>{{ gameNum }}번 추출 결과 : {{lottoList}}</p>
+    <a href="{% url 'lotto' %}">돌아가기</a>
 </body>
 </html>
