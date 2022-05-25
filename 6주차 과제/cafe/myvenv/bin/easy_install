@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/choisemin/Desktop/workspace/Web Resume/Backend-2022/6주차 과제/myvenv/bin/python3" "$0" "$@"
+'''exec' "/Users/choisemin/Desktop/workspace/Web Resume/Backend-2022/연습/myvenv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
