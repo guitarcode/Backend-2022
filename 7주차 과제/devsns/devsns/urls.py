@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from snsapp import views
+from accounts import views as accounts_views
 
 urlpatterns = [
     #메인 경로 index.html
@@ -28,5 +29,22 @@ urlpatterns = [
     path('postdetail/<int:post_id>', views.postdetail, name="postdetail"),
     #comment 생성 경로
     path('commentcreate/<int:post_id>', views.commentcreate, name="commentcreate"),
+    # post table 경로 table.html(자유게시판)
+    path('freeposttable/', views.freeposttable, name="freeposttable"),
+    # post create 경로 (자유게시판)
+    path('freepostcreate/', views.freepostcreate, name="freepostcreate"),
+    # 게시글 상세 경로 (자유게시판)
+    path('freepostdetail/<int:post_id>', views.freepostdetail, name="freepostdetail"),
+    # comment 생성 경로 (자유게시판)
+    path('freecommentcreate/<int:post_id>', views.freecommentcreate, name="freecommentcreate"),
+    #로그인 경로
+    path('login/',accounts_views.login, name='login'),
+    #회원가입 경로
+    path('signin/',accounts_views.signin, name='signin'),
+    #로그아웃 경로
+    path('logout/',accounts_views.logout, name='logout'),
     path('admin/', admin.site.urls),
+
+    #all auth url
+    path('accounts/', include('allauth.urls')),
 ]

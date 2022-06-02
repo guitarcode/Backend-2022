@@ -37,7 +37,7 @@
                     <tr>
                         <td><a href="{% url 'postdetail' post.id %}">{{post.title}}</td>
                         <td>{{post.date}}</td>
-                        <td>작성자</td>
+                        <td>익명</td>
                     </tr>
                     {% endfor %}
                     </tbody>
@@ -45,7 +45,19 @@
             </div>
         </div>
     </div>
+{% if posts.has_previous %}
+<a href="?page=1">첫 페이지 </a>
+<a href="?page={{ posts.previous_page_number }}">이전 페이지</a>
+{% endif %}
 
+<span> {{ posts.number }} </span>
+<span> / </span>
+<span> {{ posts.paginator.num_pages }} </span>
+
+{% if posts.has_next %}
+<a href="?page={{ posts.next_page_number }}">다음 페이지 </a>
+<a href="?page={{ posts.paginator.num_pages }}">마지막 페이지</a>
+{% endif %}
 </div>
 <!-- /.container-fluid -->
 
